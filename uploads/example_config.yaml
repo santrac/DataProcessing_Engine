@@ -1,0 +1,16 @@
+input:
+  format: csv
+  path: ./examples/input_data.csv
+  options:
+    header: true
+    inferSchema: true
+
+transformations:
+  - type: filter
+    condition: "age > 30"
+  - type: select
+    columns: [name, age, country]
+
+output:
+  format: parquet
+  path: ./examples/output_data.parquet
